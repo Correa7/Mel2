@@ -1,0 +1,388 @@
+/* :root {
+  --bs-link-color: black;
+  --bs-border-color: #0dcaf000;
+  --bs-border-color-translucent: rgba(0, 0, 0, 0);
+} */
+
+
+h1 {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+h2 {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+p {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  /* background-image: url(../imagenes/posiblebanner.jpg); */
+  /* background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain; */
+  margin: 2%;
+}
+
+main {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../imagenes/posiblebanner.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+}
+
+/* le agregue un hover que tenias al logo */
+.logo img {
+  transition: all 0.25s;
+}
+
+.logo img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 12px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+  background: linear-gradient(to right, #d0e9fd 0%, 24.8812347651%, #c4aedd 49.7624695301%, 74.8812347651%, #f3f3f3 100%);
+  display: flex;
+  font-size: 1rem;
+  text-align: left;
+  bottom: 0.4rem;
+  padding: 1rem;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.navbar {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Estos son estilos que les puse al contenedor y las tarjetas */
+
+.container {
+  padding: 20px;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.card {
+  width: 250px;
+  transition: all 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-img {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.card-img img {
+  width: 250px;
+  height: 300px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0%;
+}
+
+.precio {
+  margin-top: 10px;
+}
+
+.btn-secondary {
+  height: 35px;
+  font-size: 15px;
+}
+
+/* Esto es parte del grid de bootstrap */
+.col-lg-4,
+.col-lg-6,
+.col-lg-8,
+.col-lg-12 {
+  margin-top: 10px;
+}
+
+#icono-carro {
+  display: flex;
+  flex-direction: row;
+}
+
+.cart-total {
+  width: 20px;
+  height: 25px;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
+}
+
+.totalh5 {
+  margin: 5px;
+}
+
+.form-field {
+  width: 200px;
+  display: inline-block;
+  padding: 5px;
+}
+
+.cart-row {
+  display: flex;
+  align-items: flex-stretch;
+  padding-bottom: 10px;
+  margin: 10px;
+  border-bottom: 1px solid #ececec;
+}
+
+.row-image {
+  width: 60px;
+  height: 80px;
+  margin-left: 10px;
+}
+
+.cart-p {
+  margin-top: 12px;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.quantity {
+  display: inline-block;
+  font-weight: 700;
+  padding-right: 10px;
+}
+
+.chg-quantity {
+  width: 14px;
+  cursor: pointer;
+  display: block;
+  margin-top: 5px;
+  transition: .1s;
+}
+
+.chg-quantity:hover {
+  opacity: .6;
+}
+
+.chg-quantity-2 {
+  width: 14px;
+  cursor: pointer;
+  display: block;
+  margin-top: 5px;
+  transition: .1s;
+}
+
+.chg-quantity-2:hover {
+  opacity: .6;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 250px;
+  padding-bottom: 40px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*               Break points                */
+
+@media screen and (max-width: 1288px) {
+  .container {
+    padding: 20px;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 15px;
+  }
+
+  .thumbnail {
+    width: 100%;
+    height: 180px;
+  }
+}
+
+@media screen and (max-width: 965px) {
+  .container {
+    padding: 20px;
+    margin-top: 30px;
+    margin-left: 35px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 150px;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 679px) {
+  .container {
+    padding: 20px;
+    margin-top: 30px;
+    margin-left: 40px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 150px;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+
+  .row-image {
+    width: 50px;
+  }
+
+  #icono-carro {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .cart-p {
+    font-size: 14px;
+    margin-left: 5px;
+  }
+
+  .quantity {
+    font-size: 14px;
+    margin-left: 5px;
+  }
+
+  .tabla {
+    font-size: 15px;
+  }
+
+  #seguirComprando {
+    font-size: 15px;
+    padding: 5px;
+  }
+
+  #clear {
+    font-size: 15px;
+    padding: 5px;
+  }
+
+  .totalh5 {
+    margin-left: 5px;
+    font-size: 15px;
+  }
+
+
+}
+
+@media screen and (max-width: 426px) {
+  .container {
+    padding: 20px;
+    margin-top: 30px;
+    margin-left: 80px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 150px;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+
+}
+
+@media screen and (max-width: 376px) {
+
+  .container {
+    padding: 20px;
+    margin-top: 30px;
+    margin-left: 22px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 150px;
+  }
+
+  .modal-content {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 321px) {
+
+  .container {
+    padding: 5px;
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 0px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 150px;
+  }
+
+  .modal-content {
+    width: 100%;
+  }
+}
