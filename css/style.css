@@ -58,17 +58,19 @@ footer {
 
 /* Estos son estilos que les puse al contenedor y las tarjetas */
 
-.container {
-  /* width: 95%; */
+.contenedor {
   padding: 20px;
-  margin-top: 30px;
+  margin: 30px;
+  margin-left: 60px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* grid-column-gap: 10px;
-  grid-row-gap: 10px; */
-  justify-content: space-between;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 20px; 
+  grid-row-gap: 30px;
+  
 }
-
+.tarjeta-body{
+  width: 270px;
+}
 .card {
   width: 250px;
   transition: all 0.25s;
@@ -233,10 +235,8 @@ footer {
 
 /*               Break points                */
 
-@media screen and (max-width: 1288px) {
-  .container {
-    padding: 20px;
-    margin-top: 30px;
+@media screen and (max-width: 1025px) {
+  .contenedor {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 10px;
@@ -247,33 +247,20 @@ footer {
     width: 100%;
     height: 180px;
   }
+  .logo img {
+    width: 180px;
+    height: 180px;
+  }
 }
 
-@media screen and (max-width: 965px) {
-  .container {
-    padding: 20px;
-    margin-top: 30px;
-    margin-left: 35px;
+
+@media screen and (max-width: 769px) {
+  .contenedor {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 15px;
-  }
-
-  .modal-content {
-    width: 90%;
-  }
-}
-
-@media screen and (max-width: 679px) {
-  .container {
-    padding: 20px;
-    margin-top: 30px;
-    margin-left: 40px;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 15px;
+    margin-left: 85px;
   }
 
   .modal-content {
@@ -318,22 +305,20 @@ footer {
     font-size: 15px;
   }
   .logo img {
-    width: 0px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
   }
 
 
 }
 
 @media screen and (max-width: 426px) {
-  .container {
-    padding: 20px;
-    margin-top: 30px;
-    margin-left: 80px;
+  .contenedor {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 15px;
+    margin-left: 60px;
   }
 
   .modal-content {
@@ -347,14 +332,12 @@ footer {
 
 @media screen and (max-width: 376px) {
 
-  .container {
-    padding: 20px;
-    margin-top: 30px;
-    margin-left: 22px;
+  .contenedor {  
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 15px;
+    margin-left: 45px;
   }
 
   .modal-content {
@@ -366,21 +349,19 @@ footer {
   }
 }
 
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 320px) {
 
-  .container {
-    padding: 5px;
-    margin-top: 30px;
-   margin-left: 20px;
-
+  .contenedor {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-row-gap: 15px;
+    margin-left: 15px;
+
   }
 
   .modal-content {
     width: 100%;
   }
+
   .logo img {
     width: 80px;
     height: 80px;

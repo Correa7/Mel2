@@ -57,7 +57,7 @@ function renderizar(array) {
         // En este caso cree otro div que va a contener a las tarjetas lo llame tarjetabody
         let tarjetaBody = document.createElement("div")
         // aca le cree una clase, puede ser una de bootstrap como le puse o alguna que quieras darle para modificarla en css
-        tarjetaBody.className = "col-lg-4"
+        tarjetaBody.className = "tarjeta-body"
         // aca se utiliza el templatestring para que en cada vuelta de bucle renderice esta tarjeta de bootstrap
         tarjetaBody.innerHTML = `
             <div class="card">
