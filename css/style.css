@@ -59,14 +59,14 @@ footer {
 /* Estos son estilos que les puse al contenedor y las tarjetas */
 
 .container {
-  width: 95%;
+  /* width: 95%; */
   padding: 20px;
   margin-top: 30px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
-  /* justify-content: space-between; */
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-column-gap: 10px;
+  grid-row-gap: 10px; */
+  justify-content: space-between;
 }
 
 .card {
