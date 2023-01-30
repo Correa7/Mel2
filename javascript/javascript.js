@@ -5,10 +5,10 @@ let cuadros = [
     { id: 4, nombre: "D", categoria: "xx", precio: 22, img: "./imagenes/gamadenoche4.png" },
     { id: 5, nombre: "E", categoria: "xx", precio: 22, img: "./imagenes/gamadenoche5.jpg" },
     { id: 6, nombre: "F", categoria: "xx", precio: 22, img: "./imagenes/gamadenoche6.png" },
-    { id: 6, nombre: "G", categoria: "cc", precio: 13, img: "./imagenes/copia.png" },
-    { id: 7, nombre: "H", categoria: "vv", precio: 15, img: "./imagenes/symbioticself.png" },
-    { id: 8, nombre: "I", categoria: "vv", precio: 18, img: "./imagenes/carrousel2-min.png" },
-    { id: 9, nombre: "J", categoria: "cc", precio: 10, img: "./imagenes/mg-min.png" }
+    { id: 7, nombre: "G", categoria: "cc", precio: 13, img: "./imagenes/copia.png" },
+    { id: 8, nombre: "H", categoria: "vv", precio: 15, img: "./imagenes/symbioticself.png" },
+    { id:10, nombre: "J", categoria: "cc", precio: 10, img: "./imagenes/mg-min.png" },
+    { id: 9, nombre: "I", categoria: "vv", precio: 18, img: "./imagenes/carrousel2-min.png" }
 ]
 
 // Con esto capturo el div del html donde se van a renderizar las tarjetas
@@ -38,6 +38,7 @@ renderizar(cuadros)
 // functions
 // esto es una comprobacion de si existe algo en el storage lo renderice de una manera si no de otra
 comprobar(carrito)
+
 function comprobar() {
     if (localStorage.getItem("Carrito")) {
         carrito = JSON.parse(localStorage.getItem("Carrito"))
@@ -65,9 +66,9 @@ function renderizar(array) {
                     <img src="${cuadro.img}" alt="Card image cap">
                 </div>
                 <h5 class="card-title">${cuadro.nombre}</h5>
-                <div class="card-body">
+                <div class="cardBody">
                     <h6 class= "precio"><strong>Precio: $ ${cuadro.precio.toFixed(2)}</strong></h6>
-                    <a id ="${cuadro.id}" href="#" class="btn btn-secondary me-md-2">Buy</a>
+                    <button id ="${cuadro.id}"  class="btn btn-secondary me-md-2">Buy</button>
                 </div>
             </div>
             `
@@ -76,6 +77,7 @@ function renderizar(array) {
         // aca tenemos que hacer un ciclo por que cada tarjeta tiene un boton comprar
         for (boton of comprar) {
             boton.addEventListener("click", addCarrito)
+          
         }
 
         // por ultimo el div creado (tarjetabody) se apendea a el contenedor capturado en el html
@@ -117,6 +119,7 @@ function renderizarCarro(array) {
 }
 
 function addCarrito(e) {
+    console.log(e.target.id)
     // primero vamos a usar lo que pasa el boton comprar que trae un id (e), con ese id vamos a buscar en el array cuadros
     let productoBuscado = cuadros.find(cuadro => cuadro.id == e.target.id)
     // verificamos que no se encuentre en carrito
@@ -236,8 +239,6 @@ function totalRenderVacio(array) {
         modal.style.display = "none";
     }
 }
-
-
 
 
 function mostrar(e) {

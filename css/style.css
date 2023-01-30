@@ -16,7 +16,7 @@ body {
   height: 100%;
 }
 header {
-  margin: 2%;
+  pad: 2%;
 }
 
 .logo {
@@ -41,7 +41,7 @@ header {
 }
 
 footer {
-  margin: 2%;
+  padding: 2%;
   background: linear-gradient(to right, #d0e9fd 0%, 24.8812347651%, #c4aedd 49.7624695301%, 74.8812347651%, #f3f3f3 100%);
   display: flex;
   font-size: 1rem;
@@ -59,14 +59,14 @@ footer {
 /* Estos son estilos que les puse al contenedor y las tarjetas */
 
 .contenedor {
-  padding: 20px;
-  margin: 30px;
-  margin-left: 60px;
+  padding-left: 30px;
+  margin-top: 50px;
+  margin-left: 30px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 20px; 
   grid-row-gap: 30px;
-  
+  align-content: center;
 }
 .tarjeta-body{
   width: 270px;
@@ -88,15 +88,22 @@ footer {
 }
 
 .card-img img {
-  width: 250px;
-  height: 300px;
+  width: 230px;
+  height: 270px;
 }
 
-.card-body {
+.card h5 {
+  padding-left: 10px;
+}
+
+.cardBody {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0%;
+  align-items: center;
+  padding-left: 10%;
+  margin-bottom: 5px;
+ 
 }
 
 .precio {
@@ -260,7 +267,7 @@ footer {
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 15px;
-    margin-left: 85px;
+    margin-left: 30px;
   }
 
   .modal-content {
@@ -269,11 +276,6 @@ footer {
 
   .row-image {
     width: 50px;
-  }
-
-  #icono-carro {
-    display: flex;
-    flex-direction: row;
   }
 
   .cart-p {
@@ -337,7 +339,7 @@ footer {
     grid-template-columns: repeat(1, 1fr);
     grid-column-gap: 10px;
     grid-row-gap: 15px;
-    margin-left: 45px;
+    margin-left: 25px;
   }
 
   .modal-content {
@@ -354,7 +356,7 @@ footer {
   .contenedor {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    margin-left: 15px;
+    margin-left: 7px;
 
   }
 
