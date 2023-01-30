@@ -24,10 +24,7 @@ p {
 }
 
 header {
-  /* background-image: url(../imagenes/posiblebanner.jpg); */
-  /* background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain; */
+  width: 95%;
   margin: 2%;
 }
 
@@ -58,6 +55,8 @@ main {
 }
 
 footer {
+  width: 95%;
+  margin: 2%;
   background: linear-gradient(to right, #d0e9fd 0%, 24.8812347651%, #c4aedd 49.7624695301%, 74.8812347651%, #f3f3f3 100%);
   display: flex;
   font-size: 1rem;
