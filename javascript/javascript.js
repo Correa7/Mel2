@@ -4,11 +4,11 @@ let cuadros = [
     { id: 3, nombre: "C", categoria: "xx", precio: 18, img: "./imagenes/gamadenoche3.png" },
     { id: 4, nombre: "D", categoria: "xx", precio: 22, img: "./imagenes/gamadenoche4.png" },
     { id: 5, nombre: "E", categoria: "xx", precio: 22, img: "./imagenes/gamadenoche5.jpg" },
-    { id: 6, nombre: "F", categoria: "xx", precio: 22, img: "./imagenes/gamadenoche6.png" },
-    { id: 7, nombre: "G", categoria: "cc", precio: 13, img: "./imagenes/copia.png" },
-    { id: 8, nombre: "H", categoria: "vv", precio: 15, img: "./imagenes/symbioticself.png" },
-    { id:10, nombre: "J", categoria: "cc", precio: 10, img: "./imagenes/mg-min.png" },
-    { id: 9, nombre: "I", categoria: "vv", precio: 18, img: "./imagenes/carrousel2-min.png" }
+    { id: 6, nombre: "F", categoria: "xx", precio: 22, img: "./imagenes/gamadenoche6.jpg" },
+    { id: 7, nombre: "G", categoria: "cc", precio: 13, img: "./imagenes/copia.jpg" },
+    { id: 8, nombre: "H", categoria: "vv", precio: 15, img: "./imagenes/symbioticself.jpg" },
+    { id: 10, nombre: "J", categoria: "cc", precio: 10, img: "./imagenes/mg-min.jpg" },
+    { id: 9, nombre: "I", categoria: "vv", precio: 18, img: "./imagenes/carrousel2-min.jpg" }
 ]
 
 // Con esto capturo el div del html donde se van a renderizar las tarjetas
@@ -77,7 +77,7 @@ function renderizar(array) {
         // aca tenemos que hacer un ciclo por que cada tarjeta tiene un boton comprar
         for (boton of comprar) {
             boton.addEventListener("click", addCarrito)
-          
+
         }
 
         // por ultimo el div creado (tarjetabody) se apendea a el contenedor capturado en el html
@@ -108,6 +108,7 @@ function renderizarCarro(array) {
             `
         carritoRender.append(cart)
     }
+    // Aca capture los botones que son dos flechas una para sumar y otra restar productos del carro
     let add = document.getElementsByClassName("chg-quantity update-cart")
     for (let a of add) {
         a.addEventListener("click", addCarrito)
@@ -186,6 +187,7 @@ function removeItem(e) {
 }
 
 function totalRender(array) {
+    // Esto es un metodo medio raro de js para sacar la suma de cosas en un array en este caso los subtotales, ylas unidades
     totalFinal = carrito.reduce((a, b) => a + b.subtotal, 0)
     unidades = carrito.reduce((a, b) => a + b.unidades, 0)
     total.innerHTML = ""
@@ -198,10 +200,12 @@ function totalRender(array) {
         <a id="clear" style="float:right; margin:5px;" type="button" class="btn btn-outline-success" href="#">Pagar</a>
         `
     total.append(totalResumen)
+    // esto es la x de cierre del modal
     let span = document.getElementsByClassName("close")[0];
     span.onclick = function () {
         modal.style.display = "none";
     }
+    // Esta parte es el numerito que se renderiza al lado del carro
     cartNav.innerHTML = ""
     if (array.lenght != 0) {
         let parrafo = document.createElement("div")
@@ -214,10 +218,12 @@ function totalRender(array) {
         parrafo.innerHTML = `<p>0</p>`
         cartNav.append(parrafo)
     }
-
+    // y esto es el boton pagar o comprar llama a borrar el storage
     let clear = document.getElementById("clear")
     clear.addEventListener("click", borrarStorage)
 }
+
+// esta funcion es solo por si no hay nada en el storage ponga por defecto el carrito con los datos vacios
 function totalRenderVacio(array) {
     total.innerHTML = ""
     let totalResumen = document.createElement("div")
