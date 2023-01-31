@@ -325,6 +325,10 @@ footer {
     width: 160px;
     height: 160px;
   }
+  .logo img:hover {
+    transform: none;
+    box-shadow: none;
+  }
 
 
 }
@@ -351,6 +355,10 @@ footer {
     width: 120px;
     height: 120px;
   }
+  .logo img:hover {
+    transform: none;
+    box-shadow: none;
+  }
 }
 
 @media screen and (max-width: 376px) {
@@ -368,6 +376,10 @@ footer {
   }
 
   .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .logo img:hover {
     transform: none;
     box-shadow: none;
   }
@@ -392,6 +404,10 @@ footer {
   }
 
   .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .logo img:hover {
     transform: none;
     box-shadow: none;
   }
