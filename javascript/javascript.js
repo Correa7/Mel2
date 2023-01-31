@@ -72,18 +72,18 @@ function renderizar(array) {
                 The value of the illustrations is expressed in US dollars.</p>
                 <div class="cardBody">
                     <h6 class= "precio"><strong>Precio: $ ${cuadro.precio.toFixed(2)}</strong></h6>
-                    <button id ="${cuadro.id}"  class="btn btn-secondary me-md-2">Buy</button>
+                    <button id="${cuadro.id}"  class="btn btn-secondary me-md-2">Buy</button>
                 </div>
             </div>
             `
+        // por ultimo el div creado (tarjetabody) se apendea a el contenedor capturado en el html
+        contenedor.append(tarjetaBody)
         // aca capturo el boton de las tarjetas que trae el id mediante su clase
         let comprar = document.getElementsByClassName("btn btn-secondary me-md-2")
         // aca tenemos que hacer un ciclo por que cada tarjeta tiene un boton comprar
         for (boton of comprar) {
             boton.addEventListener("click", addCarrito)
         }
-        // por ultimo el div creado (tarjetabody) se apendea a el contenedor capturado en el html
-        contenedor.append(tarjetaBody)
     }
 }
 
@@ -122,7 +122,7 @@ function renderizarCarro(array) {
 }
 
 function addCarrito(e) {
-    console.log(e.target.id)
+    // console.log(e.target.id)
     // primero vamos a usar lo que pasa el boton comprar que trae un id (e), con ese id vamos a buscar en el array cuadros
     let productoBuscado = cuadros.find(cuadro => cuadro.id == e.target.id)
     // verificamos que no se encuentre en carrito
