@@ -64,7 +64,7 @@ footer {
   margin-top: 50px;
   margin-left: 30px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 20px;
   grid-row-gap: 30px;
 }
