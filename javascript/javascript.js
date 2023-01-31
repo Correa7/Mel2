@@ -78,12 +78,13 @@ function renderizar(array) {
             `
         // por ultimo el div creado (tarjetabody) se apendea a el contenedor capturado en el html
         contenedor.append(tarjetaBody)
-        // aca capturo el boton de las tarjetas que trae el id mediante su clase
-        let comprar = document.getElementsByClassName("btn btn-secondary me-md-2")
-        // aca tenemos que hacer un ciclo por que cada tarjeta tiene un boton comprar
-        for (boton of comprar) {
-            boton.addEventListener("click", addCarrito)
-        }
+    }
+    // Esto fuera del bucle for
+    // aca capturo el boton de las tarjetas que trae el id mediante su clase
+    let comprar = document.getElementsByClassName("btn btn-secondary me-md-2")
+    // aca tenemos que hacer un ciclo por que cada tarjeta tiene un boton comprar
+    for (boton of comprar) {
+        boton.addEventListener("click", addCarrito)
     }
 }
 
