@@ -1,24 +1,25 @@
 let cuadros = [
-    { id: 1, nombre: "A", categoria: "zz", precio: 10, img: "./imagenes/gamadenoche.png" },
-    { id: 2, nombre: "B", categoria: "zz", precio: 15, img: "./imagenes/gamadenoche2.png" },
-    { id: 3, nombre: "C", categoria: "xx", precio: 18, img: "./imagenes/gamadenoche3.png" },
-    { id: 4, nombre: "D", categoria: "xx", precio: 22, img: "./imagenes/gamadenoche4.png" },
-    { id: 5, nombre: "E", categoria: "xx", precio: 22, img: "./imagenes/gamadenoche5.jpg" },
-    { id: 6, nombre: "F", categoria: "xx", precio: 22, img: "./imagenes/gamadenoche6.jpg" },
-    { id: 7, nombre: "G", categoria: "cc", precio: 13, img: "./imagenes/copia.jpg" },
-    { id: 8, nombre: "H", categoria: "vv", precio: 15, img: "./imagenes/symbioticself.jpg" },
-    { id: 10, nombre: "J", categoria: "cc", precio: 10, img: "./imagenes/mg-min.jpg" },
-    { id: 9, nombre: "I", categoria: "vv", precio: 18, img: "./imagenes/carrousel2-min.jpg" }
+    { id: 1, nombre: "Room", categoria: "zz", precio: 10, img: "./imagenes/gamadenoche.png" },
+    { id: 2, nombre: "Train", categoria: "zz", precio: 15, img: "./imagenes/gamadenoche2.png" },
+    { id: 3, nombre: "Video", categoria: "xx", precio: 18, img: "./imagenes/gamadenoche3.png" },
+    { id: 4, nombre: "Sidewalk", categoria: "xx", precio: 22, img: "./imagenes/gamadenoche4.png" },
+    { id: 5, nombre: "Dream", categoria: "xx", precio: 22, img: "./imagenes/gamadenoche5.jpg" },
+    { id: 6, nombre: "Midnight", categoria: "xx", precio: 22, img: "./imagenes/gamadenoche6.jpg" },
+    { id: 7, nombre: "False Bowie", categoria: "cc", precio: 13, img: "./imagenes/copia.jpg" },
+    { id: 8, nombre: "G2", categoria: "vv", precio: 15, img: "./imagenes/symbioticself.jpg" },
+    { id: 9, nombre: "Pops", categoria: "vv", precio: 18, img: "./imagenes/carrousel2-min.jpg" },
+    { id: 10, nombre: "Again", categoria: "cc", precio: 10, img: "./imagenes/mg-min.jpg" }
 ]
 
-// Con esto capturo el div del html donde se van a renderizar las tarjetas
-// fijate que lo capturo por el id, se puede capturar tambien por class o el nombre de la etiqueta
-let contenedor = document.getElementById("contenedor")
+
+
 // Carrito debe estar vacio inicialmente
 let carrito = []
 //  creamos la variable carritoJson que es la que va a llevar las cosas al local storage
 let carritoJSON = ""
-
+// Con esto capturo el div del html donde se van a renderizar las tarjetas
+// fijate que lo capturo por el id, se puede capturar tambien por class o el nombre de la etiqueta
+let contenedor = document.getElementById("contenedor")
 // Aca se va a renderizar el carrito
 let carritoRender = document.getElementById("cart-row")
 // Capturamos el modal
@@ -26,16 +27,18 @@ let modal = document.getElementById("myModal");
 let cartNav = document.getElementById("cart-nav")
 //Captura del icono del carrito del nav
 let botonCarrito = document.getElementById("cart-button")
+// Para mostrar el carrito vacio si no hubiera productos
+let total = document.getElementById("total")
 // con esto vamos a hacer que el modal cambie de estilo y se vea
 botonCarrito.addEventListener("click", mostrar)
 
-// Para mostrar el carrito vacio si no hubiera productos
-let total = document.getElementById("total")
+let contenedorCarritoTotal = document.getElementById("contenedorCarritoTotal")
+let totalFinal = ""
+let unidades = ""
 
 
 // Acá llamo a la función que esta mas abajo
 renderizar(cuadros)
-// functions
 // esto es una comprobacion de si existe algo en el storage lo renderice de una manera si no de otra
 comprobar(carrito)
 
@@ -48,7 +51,6 @@ function comprobar() {
         totalRenderVacio(carrito)
     }
 }
-
 
 function renderizar(array) {
     // primero se pone el nombre con que capturaste el div con .innerHTML y vac{io para que arranque vacío
@@ -66,6 +68,8 @@ function renderizar(array) {
                     <img src="${cuadro.img}" alt="Card image cap">
                 </div>
                 <h5 class="card-title">${cuadro.nombre}</h5>
+                <p class="card-text">
+                The value of the illustrations is expressed in US dollars.</p>
                 <div class="cardBody">
                     <h6 class= "precio"><strong>Precio: $ ${cuadro.precio.toFixed(2)}</strong></h6>
                     <button id ="${cuadro.id}"  class="btn btn-secondary me-md-2">Buy</button>
@@ -77,9 +81,7 @@ function renderizar(array) {
         // aca tenemos que hacer un ciclo por que cada tarjeta tiene un boton comprar
         for (boton of comprar) {
             boton.addEventListener("click", addCarrito)
-
         }
-
         // por ultimo el div creado (tarjetabody) se apendea a el contenedor capturado en el html
         contenedor.append(tarjetaBody)
     }
@@ -124,8 +126,9 @@ function addCarrito(e) {
     // primero vamos a usar lo que pasa el boton comprar que trae un id (e), con ese id vamos a buscar en el array cuadros
     let productoBuscado = cuadros.find(cuadro => cuadro.id == e.target.id)
     // verificamos que no se encuentre en carrito
+    // finIndex(), si encuentra el elemento devuelve su posicion, si no devuelve -1, por eso aparece esa sentencia en el if
     let indexCuadro = carrito.findIndex(cuadro => cuadro.id == productoBuscado.id)
-    // aca el menos uno hace referencia a un producto que tiene indice menor de cero osea carrito vacio
+    //  El -1 es lo que retorna findIndex si no encontro el elemento buscado en carrito 
     if (indexCuadro != -1) {
         // si existe en el carrito el producto hara esto
         // primero si esta el producto sumara una unidad al producto
@@ -140,8 +143,8 @@ function addCarrito(e) {
 
     }
     else {
-        // En el caso de que el carrito este vacio pusheamos lo que queremos que lleve el carro, 
-        // en el array original(cuadros) no existe unidades ni subtotal, eso es para el localstorage
+        // En el caso de que el elemento no se encuentre en carrito, pusheamos el objeto con las clave valor que querramos, 
+        // en el array original(cuadros) no existe unidades ni subtotal
         carrito.push({
             id: productoBuscado.id,
             nombre: productoBuscado.nombre,
@@ -151,7 +154,7 @@ function addCarrito(e) {
             unidades: 1,
             subtotal: productoBuscado.precio
         })
-        // repetimos la conversion del if
+        // convertimos el carrito a Json y lo agregamos al localStorage (ojo Carrito con mayuscula no es el array carrito, es el nombre que va allevaar en el local storage)
         carritoJSON = JSON.stringify(carrito)
         localStorage.setItem("Carrito", carritoJSON)
 
@@ -159,6 +162,7 @@ function addCarrito(e) {
     renderizarCarro(carrito)
     totalRender(carrito)
 }
+
 function removeItem(e) {
     // igual que en la funcion addCarrito
     let productoBuscado = cuadros.find(cuadro => cuadro.id == e.target.id)
@@ -195,9 +199,9 @@ function totalRender(array) {
     totalResumen.className = "total"
     totalResumen.innerHTML = `
         <span class="close">&times;</span> 
-        <h5 class="totalh5" >Items: <strong>${unidades} </strong></h5>
+        <h5 class="totalh5" >Items: <strong>${unidades}</strong></h5>
         <h5 class="totalh5" >Total:<strong> $ ${totalFinal.toFixed(2)}</strong></h5>
-        <a id="clear" style="float:right; margin:5px;" type="button" class="btn btn-outline-success" href="#">Pagar</a>
+        <button id="clear" style="float:right; margin:5px;" type="button" class="btn btn-outline-success">Pagar</button>
         `
     total.append(totalResumen)
     // esto es la x de cierre del modal
@@ -205,7 +209,7 @@ function totalRender(array) {
     span.onclick = function () {
         modal.style.display = "none";
     }
-    // Esta parte es el numerito que se renderiza al lado del carro
+    // Esta parte es el numerito que se renderiza al lado del carro en el nav
     cartNav.innerHTML = ""
     if (array.lenght != 0) {
         let parrafo = document.createElement("div")
@@ -222,7 +226,6 @@ function totalRender(array) {
     let clear = document.getElementById("clear")
     clear.addEventListener("click", borrarStorage)
 }
-
 // esta funcion es solo por si no hay nada en el storage ponga por defecto el carrito con los datos vacios
 function totalRenderVacio(array) {
     total.innerHTML = ""
@@ -230,7 +233,7 @@ function totalRenderVacio(array) {
     totalResumen.className = "total"
     totalResumen.innerHTML = `
             <span class="close">&times;</span> 
-            <h5 class="totalh5">Items: <strong>  0 </strong></h5>
+            <h5 class="totalh5">Items: <strong> 0 </strong></h5>
             <h5 class="totalh5">Total:<strong> $ 0.00 </strong></h5>
             `
     total.append(totalResumen)
@@ -246,7 +249,6 @@ function totalRenderVacio(array) {
     }
 }
 
-
 function mostrar(e) {
     // cambiamos el display del css de NONE a BLOK para que se vea
     modal.style.display = "block";
@@ -260,10 +262,12 @@ window.onclick = function (event) {
 // Borrar storage
 function borrarStorage() {
     localStorage.removeItem("Carrito")
-    contenedorCarritoTotal.className = "container"
+    contenedorCarritoTotal.className = "modal-content"
     modal.style.display = "none";
+
     carrito = []
     totalRenderVacio(carrito)
     renderizarCarro(carrito)
-    renderizar(productos)
+    renderizar(cuadros)
+    comprobar(carrito)
 }
